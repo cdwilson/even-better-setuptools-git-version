@@ -13,6 +13,9 @@ def _get_command_output(command):
     except subprocess.CalledProcessError as e:
         output = e.output
 
+    if type(output) is bytes:
+        output = output.decode()
+
     return output.strip()
 
 
